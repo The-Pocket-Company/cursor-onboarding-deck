@@ -5,8 +5,8 @@
 <title>01 · 封面</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens-takram.css">
 <style>
   .cover-grid {
     height: 100%;
@@ -16,18 +16,14 @@
     align-items: center;
   }
 
-  .cover-title {
-    max-width: 1040px;
-  }
+  .cover-title { max-width: 1040px; }
 
   .cover-title h1 {
-    font-size: 126px;
-    line-height: 1.02;
+    font-size: 122px;
+    line-height: 1.03;
   }
 
-  .cover-title .subtitle {
-    max-width: 900px;
-  }
+  .cover-title .subtitle { max-width: 900px; }
 
   .journey-card {
     position: relative;
@@ -48,7 +44,7 @@
     left: 31px;
     top: 58px;
     bottom: 58px;
-    width: 4px;
+    width: 2px;
     background: var(--line);
   }
 
@@ -61,34 +57,36 @@
   }
 
   .route-dot {
-    width: 66px;
-    height: 66px;
-    border-radius: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     background: var(--white);
-    border: 3px solid var(--line);
+    border: 1.5px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--muted);
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 24px;
-    font-weight: 800;
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 600;
     z-index: 1;
   }
 
   .route-step:first-child .route-dot {
     border-color: var(--cursor);
     color: var(--cursor);
+    background: rgba(78, 111, 94, 0.07);
   }
 
   .route-title {
-    font-size: 33px;
-    line-height: 1.2;
-    font-weight: 850;
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1.22;
+    font-weight: 600;
   }
 
   .route-copy {
-    margin-top: 8px;
+    margin-top: 7px;
     color: var(--muted);
     font-size: 22px;
     line-height: 1.45;
@@ -100,10 +98,10 @@
     right: 48px;
     bottom: 42px;
     padding-top: 26px;
-    border-top: 2px solid var(--line);
+    border-top: 1.5px solid var(--line);
     color: var(--muted);
-    font-size: 23px;
-    line-height: 1.45;
+    font-size: 22px;
+    line-height: 1.5;
   }
 </style>
 </head>
@@ -116,36 +114,36 @@
 
   <div class="content cover-grid">
     <section class="cover-title">
-      <p class="kicker">Beginner friendly setup</p>
-      <h1>給初學者的<br><span class="accent">開發環境</span><br>設置教學</h1>
-      <p class="subtitle">從已經有 Cursor 帳號開始，一步步接上 Git，理解 Gmail / GCP 的用途，最後選擇「地端 localhost」或「雲端全端」路線。</p>
+      <p class="kicker reveal d1">Beginner friendly setup</p>
+      <h1 class="reveal d2">給初學者的<br><span class="accent">開發環境</span><br>設置教學</h1>
+      <p class="subtitle reveal d3">從已經有 Cursor 帳號開始，一步步接上 Git，理解 Gmail / GCP 的用途，最後選擇「地端 localhost」或「雲端全端」路線。</p>
     </section>
 
-    <section class="node journey-card">
+    <section class="node journey-card reveal d4">
       <span class="tag" style="color: var(--cursor);">today's route</span>
       <div class="route">
-        <div class="route-step">
+        <div class="route-step reveal d5">
           <div class="route-dot">1</div>
           <div>
             <p class="route-title">Cursor 已經準備好</p>
             <p class="route-copy">先把它當成「會陪你寫程式的編輯器」。</p>
           </div>
         </div>
-        <div class="route-step">
+        <div class="route-step reveal d6">
           <div class="route-dot">2</div>
           <div>
             <p class="route-title">註冊 GitHub，連進 Cursor</p>
             <p class="route-copy">讓程式有版本、有備份，也能被部署服務讀到。</p>
           </div>
         </div>
-        <div class="route-step">
+        <div class="route-step reveal d7">
           <div class="route-dot">3</div>
           <div>
             <p class="route-title">準備 Gmail / Google 帳號</p>
             <p class="route-copy">如果要使用 GCP，這就是登入雲端服務的鑰匙。</p>
           </div>
         </div>
-        <div class="route-step">
+        <div class="route-step reveal d8">
           <div class="route-dot">4</div>
           <div>
             <p class="route-title">選擇你的全端路線</p>

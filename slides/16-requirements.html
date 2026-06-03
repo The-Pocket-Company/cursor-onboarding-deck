@@ -5,8 +5,8 @@
 <title>16 · 描述需求</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens-takram.css">
 <style>
   .req-layout {
     height: 100%;
@@ -45,7 +45,7 @@
   }
 
   .el-num {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--serif);
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -88,8 +88,8 @@
   }
 
   .ex-card.good {
-    border-color: rgba(79, 138, 82, 0.45);
-    background: rgba(79, 138, 82, 0.08);
+    border-color: rgba(168, 121, 78, 0.45);
+    background: rgba(168, 121, 78, 0.08);
   }
 
   .ex-head {
@@ -118,7 +118,7 @@
   .ex-icon path { fill: none; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
 
   .ex-label {
-    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+    font-family: var(--serif);
     font-size: 23px;
     font-weight: 850;
   }
@@ -134,7 +134,7 @@
   .ex-quote .mono {
     padding: 1px 8px;
     border-radius: 7px;
-    background: rgba(232, 116, 44, 0.12);
+    background: rgba(78, 111, 94, 0.12);
     color: var(--cursor);
     font-size: 22px;
   }
@@ -208,5 +208,6 @@
     </section>
   </div>
 </main>
+<script src="../shared/motion.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@
     will-change: transform;
     width: 1920px;
     height: 1080px;
-    background: #faf6ef;
+    background: #f2eee6;
     box-shadow: 0 18px 90px rgba(0,0,0,0.45);
   }
   iframe {
@@ -54,7 +54,9 @@
     height: 100%;
     border: 0;
     display: block;
-    background: #faf6ef;
+    background: #f2eee6;
+    opacity: 0;
+    transition: opacity 0.32s ease;
   }
   .counter {
     position: fixed;
@@ -116,6 +118,7 @@
       height: 1080px;
       page-break-after: always;
       display: block;
+      opacity: 1 !important;
     }
   }
 </style>
@@ -153,6 +156,7 @@
   function show(index) {
     if (index < 0 || index >= deck.length) return;
     current = index;
+    frame.style.opacity = '0';
     frame.src = deck[index].file;
     counter.innerHTML = `${index + 1} / ${deck.length}<span class="label">${deck[index].label || ''}</span>`;
     try { localStorage.setItem(storageKey, String(index)); } catch (_) {}
@@ -199,6 +203,8 @@
         }
     }
   });
+
+  frame.addEventListener('load', () => { frame.style.opacity = '1'; });
 
   document.getElementById('navL').addEventListener('click', prev);
   document.getElementById('navR').addEventListener('click', next);
