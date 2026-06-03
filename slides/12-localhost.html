@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>12 · 路線 A 地端</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .local-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.84fr 1.16fr;
+    gap: 66px;
+    align-items: center;
+  }
+
+  .laptop {
+    height: 670px;
+    padding: 42px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .screen {
+    flex: 1;
+    border: 4px solid #342b25;
+    border-radius: 34px;
+    background: #fffdf8;
+    padding: 42px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 34px;
+  }
+
+  .screen-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 24px;
+  }
+
+  .screen-title p:first-child {
+    color: var(--local);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .screen-title p:last-child {
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .local-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .stack-box {
+    min-height: 250px;
+    border-radius: 28px;
+    background: rgba(79,138,82,0.10);
+    border: 2px solid rgba(79,138,82,0.32);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stack-box p:first-child {
+    font-size: 31px;
+    font-weight: 850;
+  }
+
+  .stack-box p:last-child {
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .base {
+    height: 58px;
+    margin: 0 auto;
+    width: 76%;
+    border-radius: 0 0 40px 40px;
+    background: #342b25;
+  }
+
+  .important {
+    margin-top: 42px;
+    padding: 26px 30px;
+    border-radius: 26px;
+    background: rgba(79,138,82,0.12);
+    border: 2px solid rgba(79,138,82,0.35);
+    color: var(--local);
+    font-size: 30px;
+    line-height: 1.35;
+    font-weight: 850;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">12 / 14</p>
+  </div>
+
+  <div class="content local-layout">
+    <section>
+      <p class="kicker">route a · localhost</p>
+      <h2>地端全端：全部先在自己的電腦跑起來</h2>
+      <p class="subtitle">這條路線最適合剛開始練習：沒有部署、沒有雲端帳單壓力，也不需要 Firebase。</p>
+      <p class="important">重點：後端與資料庫都在本機，用 <span class="mono">localhost</span> 開。</p>
+    </section>
+
+    <section class="node laptop">
+      <div class="screen">
+        <div class="screen-title">
+          <p>localhost:3000</p>
+          <p>你的筆電</p>
+        </div>
+        <div class="local-stack">
+          <div class="stack-box">
+            <p>前端</p>
+            <p>網站畫面與互動。</p>
+          </div>
+          <div class="stack-box">
+            <p>後端</p>
+            <p>API、商業邏輯、檔案處理。</p>
+          </div>
+          <div class="stack-box">
+            <p>資料庫</p>
+            <p>SQLite、Postgres local、模擬資料都可以。</p>
+          </div>
+        </div>
+      </div>
+      <div class="base"></div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

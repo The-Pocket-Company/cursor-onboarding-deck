@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>09 · 雲端角色</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .roles-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 48px;
+    padding-top: 84px;
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 72px;
+  }
+
+  .header-row h2 {
+    max-width: 900px;
+  }
+
+  .header-row .subtitle {
+    max-width: 600px;
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .role-card {
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 560px;
+  }
+
+  .role-card.primary {
+    border-color: rgba(232, 116, 44, 0.42);
+    background: rgba(232, 116, 44, 0.07);
+  }
+
+  .role-top {
+    display: grid;
+    gap: 20px;
+  }
+
+  .role-label {
+    width: max-content;
+    height: 38px;
+    padding: 0 14px;
+    font-size: 16px;
+  }
+
+  .role-card h3 {
+    font-size: 41px;
+    letter-spacing: -0.035em;
+  }
+
+  .role-card .node-body {
+    font-size: 23px;
+    margin-top: 0;
+  }
+
+  .analogy {
+    padding: 20px 22px;
+    border-radius: 20px;
+    background: rgba(250,246,239,0.82);
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.42;
+    font-weight: 650;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">09 / 14</p>
+  </div>
+
+  <div class="content roles-layout">
+    <section class="header-row">
+      <div>
+        <p class="kicker">cloud building blocks</p>
+        <h2>先認識這套雲端的幾個角色</h2>
+      </div>
+      <p class="subtitle">不用今天全部設定好，先知道每個服務在系統裡負責哪一件事就好。</p>
+    </section>
+
+    <section class="role-grid">
+      <div class="node role-card primary">
+        <div class="role-top">
+          <span class="tag role-label" style="color: var(--cursor);">host · deploy</span>
+          <h3>App Hosting</h3>
+          <p class="node-body">把你的 Next.js 前後端一起部署上線，git push 就自動更新。你的主後端就跑在這裡。</p>
+        </div>
+        <p class="analogy">比喻：幫你顧好店面與後場的房東，你只管裝潢（寫 code）。</p>
+      </div>
+
+      <div class="node role-card">
+        <div class="role-top">
+          <span class="tag role-label" style="color: var(--cloud);">document db</span>
+          <h3>Firestore</h3>
+          <p class="node-body">文件型 NoSQL，彈性資料、即時同步。前端也能直接連、後端也會用。</p>
+        </div>
+        <p class="analogy">比喻：一疊可即時同步的資料夾，每份文件格式比較彈性。</p>
+      </div>
+
+      <div class="node role-card">
+        <div class="role-top">
+          <span class="tag role-label" style="color: var(--cloud);">relational db</span>
+          <h3>Cloud SQL</h3>
+          <p class="node-body">MySQL / PostgreSQL，適合表格、關聯、交易、報表。只在伺服器端使用。</p>
+        </div>
+        <p class="analogy">比喻：Excel 表格升級成可被後端穩定查詢的資料庫。</p>
+      </div>
+
+      <div class="node role-card">
+        <div class="role-top">
+          <span class="tag role-label" style="color: var(--cloud);">standalone service</span>
+          <h3>Cloud Run</h3>
+          <p class="node-body">把一個獨立服務包成容器單獨執行（例如爬蟲、排程），需要時由後端呼叫。</p>
+        </div>
+        <p class="analogy">比喻：請一位專做某件事的外包小幫手，需要時才找它。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>01 · 封面</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .cover-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.04fr 0.96fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .cover-title {
+    max-width: 1040px;
+  }
+
+  .cover-title h1 {
+    font-size: 126px;
+    line-height: 1.02;
+  }
+
+  .cover-title .subtitle {
+    max-width: 900px;
+  }
+
+  .journey-card {
+    position: relative;
+    min-height: 720px;
+    padding: 48px;
+  }
+
+  .route {
+    position: relative;
+    display: grid;
+    gap: 30px;
+    margin-top: 28px;
+  }
+
+  .route::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 58px;
+    bottom: 58px;
+    width: 4px;
+    background: var(--line);
+  }
+
+  .route-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 66px 1fr;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .route-dot {
+    width: 66px;
+    height: 66px;
+    border-radius: 24px;
+    background: var(--white);
+    border: 3px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    z-index: 1;
+  }
+
+  .route-step:first-child .route-dot {
+    border-color: var(--cursor);
+    color: var(--cursor);
+  }
+
+  .route-title {
+    font-size: 33px;
+    line-height: 1.2;
+    font-weight: 850;
+  }
+
+  .route-copy {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1.45;
+  }
+
+  .small-note {
+    position: absolute;
+    left: 48px;
+    right: 48px;
+    bottom: 42px;
+    padding-top: 26px;
+    border-top: 2px solid var(--line);
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">01 / 14</p>
+  </div>
+
+  <div class="content cover-grid">
+    <section class="cover-title">
+      <p class="kicker">Beginner friendly setup</p>
+      <h1>給初學者的<br><span class="accent">開發環境</span><br>設置教學</h1>
+      <p class="subtitle">從已經有 Cursor 帳號開始，一步步接上 Git，理解 Gmail / GCP 的用途，最後選擇「地端 localhost」或「雲端全端」路線。</p>
+    </section>
+
+    <section class="node journey-card">
+      <span class="tag" style="color: var(--cursor);">today's route</span>
+      <div class="route">
+        <div class="route-step">
+          <div class="route-dot">1</div>
+          <div>
+            <p class="route-title">Cursor 已經準備好</p>
+            <p class="route-copy">先把它當成「會陪你寫程式的編輯器」。</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">2</div>
+          <div>
+            <p class="route-title">註冊 GitHub，連進 Cursor</p>
+            <p class="route-copy">讓程式有版本、有備份，也能被部署服務讀到。</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">3</div>
+          <div>
+            <p class="route-title">準備 Gmail / Google 帳號</p>
+            <p class="route-copy">如果要使用 GCP，這就是登入雲端服務的鑰匙。</p>
+          </div>
+        </div>
+        <div class="route-step">
+          <div class="route-dot">4</div>
+          <div>
+            <p class="route-title">選擇你的全端路線</p>
+            <p class="route-copy">純地端 localhost，或部署到 GCP 雲端。</p>
+          </div>
+        </div>
+      </div>
+      <p class="small-note">這份簡報不是要一次教完所有技術，而是先幫完全新手看懂「下一步要辦哪些帳號、為什麼要辦、辦完接到哪裡」。</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

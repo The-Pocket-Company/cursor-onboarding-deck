@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>14 · 對照與下一步</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .compare-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 38px;
+    padding-top: 78px;
+  }
+
+  .headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 70px;
+  }
+
+  .headline h2 {
+    max-width: 940px;
+    font-size: 66px;
+  }
+
+  .headline .subtitle {
+    max-width: 560px;
+    margin-top: 0;
+    font-size: 27px;
+  }
+
+  .comparison {
+    align-self: start;
+  }
+
+  .comparison p {
+    min-height: 70px;
+    padding: 18px 26px;
+    font-size: 23px;
+  }
+
+  .comparison .header {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .comparison .row-label {
+    color: var(--muted);
+    font-weight: 850;
+  }
+
+  .next-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .next-card {
+    padding: 28px 32px;
+    border-radius: 28px;
+    background: rgba(255,253,248,0.76);
+    border: 2px solid var(--line);
+  }
+
+  .next-card p:first-child {
+    font-size: 28px;
+    font-weight: 850;
+  }
+
+  .next-card p:last-child {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">14 / 14</p>
+  </div>
+
+  <div class="content compare-layout">
+    <section class="headline">
+      <div>
+        <p class="kicker">quick decision</p>
+        <h2>最後，用這張表選路線</h2>
+      </div>
+      <p class="subtitle">不要為了「看起來完整」就直接上雲端。先選最符合當下目標的路線。</p>
+    </section>
+
+    <section class="comparison">
+      <p class="header">判斷項目</p>
+      <p class="header local-text">路線 A · 地端 localhost</p>
+      <p class="header cloud-text">路線 B · GCP 雲端全端</p>
+
+      <p class="row-label">適合誰</p>
+      <p>剛開始學、自己練習、先把功能跑通。</p>
+      <p>要讓別人使用、展示作品、接近正式產品。</p>
+
+      <p class="row-label">需要帳號</p>
+      <p>Cursor + GitHub 就很夠。</p>
+      <p>Cursor + GitHub + Gmail / Google 帳號。</p>
+
+      <p class="row-label">資料庫位置</p>
+      <p>在本機，或先用假資料練習。</p>
+      <p>Firestore / Cloud SQL 放在 GCP。</p>
+
+      <p class="row-label">是否需要 Firebase</p>
+      <p>不需要。後端與資料庫都在本機即可。</p>
+      <p>需要。用 App Hosting 部署、Firestore 存資料。</p>
+
+      <p class="row-label">部署方式</p>
+      <p>在本機 npm run dev，用 localhost 開。</p>
+      <p>git push 後 App Hosting 自動 build＋上線。</p>
+
+      <p class="row-label">下一步</p>
+      <p>先建立第一個 repo，讓專案可以在 localhost 跑。</p>
+      <p>建立 GCP／Firebase 專案，把 repo 接上 App Hosting。</p>
+    </section>
+
+    <section class="next-step">
+      <div class="next-card">
+        <p class="local-text">如果你完全新手</p>
+        <p>先走地端路線。你會更快看到成果，也比較不會被雲端設定嚇到。</p>
+      </div>
+      <div class="next-card">
+        <p class="cloud-text">如果你要做真實服務</p>
+        <p>再進雲端路線。把 repo 接上 App Hosting，git push 就自動部署，搭配 Firestore / Cloud SQL。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Cursor 初學者環境教學 Deck</title>
+<script>
+  window.DECK_MANIFEST = [
+    { file: "slides/01-cover.html", label: "封面" },
+    { file: "slides/02-map.html", label: "旅程地圖" },
+    { file: "slides/03-cursor.html", label: "Cursor 起步" },
+    { file: "slides/04-git-why.html", label: "為什麼需要 Git" },
+    { file: "slides/05-github-signup.html", label: "註冊 GitHub" },
+    { file: "slides/06-connect-git.html", label: "連進 Cursor" },
+    { file: "slides/07-architecture.html", label: "系統長相" },
+    { file: "slides/08-apphosting.html", label: "App Hosting 自動部署" },
+    { file: "slides/09-gcp-roles.html", label: "雲端角色" },
+    { file: "slides/10-gmail.html", label: "為什麼需要 Gmail" },
+    { file: "slides/11-crossroad.html", label: "岔路口" },
+    { file: "slides/12-localhost.html", label: "路線 A 地端" },
+    { file: "slides/13-gcp-cloud.html", label: "路線 B 雲端" },
+    { file: "slides/14-compare.html", label: "對照與下一步" }
+  ];
+
+  window.DECK_WIDTH = 1920;
+  window.DECK_HEIGHT = 1080;
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: #15110d;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  #stage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform-origin: top left;
+    will-change: transform;
+    width: 1920px;
+    height: 1080px;
+    background: #faf6ef;
+    box-shadow: 0 18px 90px rgba(0,0,0,0.45);
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: #faf6ef;
+  }
+  .counter {
+    position: fixed;
+    right: 22px;
+    bottom: 20px;
+    z-index: 100;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.66);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.72;
+    user-select: none;
+  }
+  .counter .label {
+    margin-left: 8px;
+    color: rgba(255,255,255,0.72);
+  }
+  .nav-zone {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 14%;
+    z-index: 50;
+    cursor: pointer;
+  }
+  .nav-zone.left { left: 0; }
+  .nav-zone.right { right: 0; }
+  .nav-hint {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .nav-zone.left .nav-hint { left: 22px; }
+  .nav-zone.right .nav-hint { right: 22px; }
+  .nav-zone:hover .nav-hint { opacity: 1; }
+
+  @media print {
+    @page { size: 1920px 1080px; margin: 0; }
+    html, body { background: #fff; height: auto; overflow: visible; }
+    #stage { position: static; transform: none !important; box-shadow: none; }
+    .counter, .nav-zone { display: none !important; }
+    .print-stack { display: block; }
+    .print-stack iframe {
+      width: 1920px;
+      height: 1080px;
+      page-break-after: always;
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <iframe id="frame" src="about:blank" title="slide"></iframe>
+</div>
+<div class="nav-zone left" id="navL"><div class="nav-hint">‹</div></div>
+<div class="nav-zone right" id="navR"><div class="nav-hint">›</div></div>
+<div class="counter" id="counter">1 / 1</div>
+<div class="print-stack" id="printStack" style="display:none;"></div>
+
+<script>
+(function () {
+  const W = window.DECK_WIDTH || 1920;
+  const H = window.DECK_HEIGHT || 1080;
+  const deck = window.DECK_MANIFEST || [];
+  const stage = document.getElementById('stage');
+  const frame = document.getElementById('frame');
+  const counter = document.getElementById('counter');
+  const printStack = document.getElementById('printStack');
+  const storageKey = 'cursor-onboarding-deck-current';
+  let current = 0;
+
+  function fit() {
+    const scale = Math.min(window.innerWidth / W, window.innerHeight / H);
+    const x = (window.innerWidth - W * scale) / 2;
+    const y = (window.innerHeight - H * scale) / 2;
+    stage.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    stage.style.top = '0';
+    stage.style.left = '0';
+  }
+
+  function show(index) {
+    if (index < 0 || index >= deck.length) return;
+    current = index;
+    frame.src = deck[index].file;
+    counter.innerHTML = `${index + 1} / ${deck.length}<span class="label">${deck[index].label || ''}</span>`;
+    try { localStorage.setItem(storageKey, String(index)); } catch (_) {}
+    if (location.hash !== '#' + (index + 1)) {
+      history.replaceState(null, '', '#' + (index + 1));
+    }
+  }
+
+  function next() { show(Math.min(current + 1, deck.length - 1)); }
+  function prev() { show(Math.max(current - 1, 0)); }
+
+  document.addEventListener('keydown', (event) => {
+    switch (event.key) {
+      case 'ArrowRight':
+      case ' ':
+      case 'PageDown':
+        event.preventDefault();
+        next();
+        break;
+      case 'ArrowLeft':
+      case 'PageUp':
+        event.preventDefault();
+        prev();
+        break;
+      case 'Home':
+        event.preventDefault();
+        show(0);
+        break;
+      case 'End':
+        event.preventDefault();
+        show(deck.length - 1);
+        break;
+      case 'p':
+      case 'P':
+        window.print();
+        break;
+      default:
+        if (event.key >= '1' && event.key <= '9') {
+          const index = parseInt(event.key, 10) - 1;
+          if (index < deck.length) {
+            event.preventDefault();
+            show(index);
+          }
+        }
+    }
+  });
+
+  document.getElementById('navL').addEventListener('click', prev);
+  document.getElementById('navR').addEventListener('click', next);
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', () => {
+    const match = location.hash.match(/^#(\d+)$/);
+    if (match) show(parseInt(match[1], 10) - 1);
+  });
+
+  const hashMatch = location.hash.match(/^#(\d+)$/);
+  if (hashMatch) current = Math.min(parseInt(hashMatch[1], 10) - 1, deck.length - 1);
+  else {
+    try {
+      const saved = parseInt(localStorage.getItem(storageKey), 10);
+      if (!Number.isNaN(saved) && saved >= 0 && saved < deck.length) current = saved;
+    } catch (_) {}
+  }
+
+  fit();
+  show(current);
+
+  window.addEventListener('beforeprint', () => {
+    printStack.innerHTML = '';
+    deck.forEach((item) => {
+      const iframe = document.createElement('iframe');
+      iframe.src = item.file;
+      printStack.appendChild(iframe);
+    });
+    printStack.style.display = 'block';
+    stage.style.display = 'none';
+  });
+
+  window.addEventListener('afterprint', () => {
+    printStack.innerHTML = '';
+    printStack.style.display = 'none';
+    stage.style.display = '';
+  });
+})();
+</script>
+</body>
+</html>
