@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>20 · 複製即用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .copy-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 30px;
+    padding-top: 84px;
+  }
+
+  .copy-header h2 { max-width: 1200px; }
+  .copy-header .subtitle { font-size: 28px; max-width: 1360px; margin-top: 18px; }
+
+  .copy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .copy-card {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
+  }
+
+  .copy-card.rule { border-color: rgba(232, 116, 44, 0.45); }
+  .copy-card.skill { border-color: rgba(43, 127, 184, 0.45); }
+
+  .copy-card .tag { align-self: flex-start; }
+
+  .cc-path {
+    align-self: flex-start;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(35, 32, 32, 0.06);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 20px;
+    font-weight: 650;
+    color: var(--ink);
+  }
+
+  .preview {
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 20px 24px;
+    border-radius: 16px;
+    border: 2px solid var(--line);
+    background: rgba(35, 32, 32, 0.035);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    white-space: pre;
+    overflow: hidden;
+  }
+  .pv-fm { color: var(--muted); }
+  .pv-rule { color: var(--cursor); font-weight: 700; }
+  .pv-skill { color: var(--cloud); font-weight: 700; }
+  .pv-dim { color: var(--muted); }
+
+  .cc-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .copy-btn {
+    cursor: pointer;
+    padding: 14px 24px;
+    border-radius: 13px;
+    border: none;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: inherit;
+    font-size: 21px;
+    font-weight: 750;
+    transition: background 0.18s ease;
+  }
+  .copy-btn:hover { background: #000; }
+  .copy-btn.copied { background: var(--local); }
+
+  .dl-link {
+    padding: 13px 22px;
+    border-radius: 13px;
+    border: 2px solid var(--line);
+    background: rgba(255, 253, 248, 0.7);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    transition: border-color 0.18s ease;
+  }
+  .dl-link:hover { border-color: var(--ink); }
+
+  .copy-hint {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">20 / 20</p>
+  </div>
+
+  <div class="content copy-layout">
+    <section class="copy-header">
+      <p class="kicker">copy &amp; paste</p>
+      <h2>複製即用：繁體中文 Rule 與 Skill</h2>
+      <p class="subtitle">按「複製完整內容」貼進對應檔案存檔即可；或直接下載檔案放進專案。</p>
+    </section>
+
+    <section class="copy-grid">
+      <div class="node copy-card rule">
+        <span class="tag" style="color: var(--cursor);">rule · .mdc</span>
+        <span class="cc-path">.cursor/rules/karpathy-guidelines.mdc</span>
+<pre class="preview"><span class="pv-fm">---
+description: 降低 AI 寫程式常見錯誤的行為準則…
+alwaysApply: true
+---</span>
+
+<span class="pv-rule"># Karpathy 行為準則（繁中）</span>
+
+## 1. 動手前先想清楚
+## 2. 簡單優先
+## 3. 最小幅度修改
+## 4. 目標導向執行
+<span class="pv-dim">…（完整內容請按複製）</span></pre>
+        <div class="cc-actions">
+          <button class="copy-btn" data-label="複製完整內容" onclick="copyDoc('../assets/karpathy-guidelines.mdc', this)">複製完整內容</button>
+          <a class="dl-link" href="../assets/karpathy-guidelines.mdc" download="karpathy-guidelines.mdc">下載 .mdc</a>
+        </div>
+      </div>
+
+      <div class="node copy-card skill">
+        <span class="tag" style="color: var(--cloud);">skill · SKILL.md</span>
+        <span class="cc-path">.cursor/skills/karpathy-guidelines/SKILL.md</span>
+<pre class="preview"><span class="pv-fm">---
+name: karpathy-guidelines
+description: 降低 AI 寫程式常見錯誤的行為準則…
+license: MIT
+---</span>
+
+<span class="pv-skill"># Karpathy 行為準則（繁中）</span>
+
+## 1. 動手前先想清楚
+## 2. 簡單優先
+## 3. 最小幅度修改
+## 4. 目標導向執行
+<span class="pv-dim">…（完整內容請按複製）</span></pre>
+        <div class="cc-actions">
+          <button class="copy-btn" data-label="複製完整內容" onclick="copyDoc('../assets/karpathy-guidelines-skill.md', this)">複製完整內容</button>
+          <a class="dl-link" href="../assets/karpathy-guidelines-skill.md" download="SKILL.md">下載 SKILL.md</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="copy-hint">
+      <span>貼上後存檔即可生效。Rule 可在 Cursor 設定中設為自動套用；Skill 會在需要時被叫用。</span>
+    </div>
+  </div>
+</main>
+
+<script>
+  function flashBtn(btn) {
+    btn.classList.add('copied');
+    btn.textContent = '已複製 ✓';
+    setTimeout(function () {
+      btn.textContent = btn.dataset.label;
+      btn.classList.remove('copied');
+    }, 1600);
+  }
+  function failBtn(btn) {
+    btn.textContent = '複製失敗，請改用下載';
+    setTimeout(function () { btn.textContent = btn.dataset.label; }, 2200);
+  }
+  async function writeClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+    }
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) { return false; }
+  }
+  async function copyDoc(url, btn) {
+    try {
+      var res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('fetch failed');
+      var text = await res.text();
+      var ok = await writeClipboard(text);
+      ok ? flashBtn(btn) : failBtn(btn);
+    } catch (e) { failBtn(btn); }
+  }
+</script>
+</body>
+</html>
