@@ -5,15 +5,14 @@
 <title>15 · 兩種模式</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens-takram.css">
 <style>
   .modes-layout {
     height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    gap: 40px;
-    padding-top: 84px;
+    gap: 30px;
   }
 
   .modes-header h2 {
@@ -28,20 +27,20 @@
   }
 
   .mode-card {
-    padding: 44px 46px;
+    padding: 34px 42px;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
   }
 
   .mode-card.plan {
-    border-color: rgba(43, 127, 184, 0.45);
-    background: rgba(43, 127, 184, 0.07);
+    border-color: rgba(94, 123, 136, 0.45);
+    background: rgba(94, 123, 136, 0.07);
   }
 
   .mode-card.agent {
-    border-color: rgba(232, 116, 44, 0.45);
-    background: rgba(232, 116, 44, 0.07);
+    border-color: rgba(78, 111, 94, 0.45);
+    background: rgba(78, 111, 94, 0.07);
   }
 
   .mode-card .tag {
@@ -49,7 +48,7 @@
   }
 
   .mode-card h3 {
-    font-size: 50px;
+    font-size: 46px;
     letter-spacing: -0.03em;
   }
 
@@ -64,15 +63,15 @@
   }
 
   .mode-when {
-    margin-top: 6px;
-    padding-top: 24px;
-    border-top: 2px solid var(--line);
+    margin-top: 4px;
+    padding-top: 20px;
+    border-top: 1.5px solid var(--line);
     display: grid;
-    gap: 16px;
+    gap: 12px;
   }
 
   .when-label {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--serif);
     font-size: 17px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -116,7 +115,7 @@
     border-radius: 999px;
     background: var(--ink);
     color: var(--paper);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--serif);
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -178,5 +177,6 @@
     </section>
   </div>
 </main>
+<script src="../shared/motion.js"></script>
 </body>
 </html>

@@ -5,8 +5,8 @@
 <title>19 · Rules &amp; Skills</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens-takram.css">
 <style>
   .rs-layout {
     height: 100%;
@@ -45,13 +45,13 @@
   }
 
   .concept.rule {
-    border-color: rgba(232, 116, 44, 0.45);
-    background: rgba(232, 116, 44, 0.07);
+    border-color: rgba(78, 111, 94, 0.45);
+    background: rgba(78, 111, 94, 0.07);
   }
 
   .concept.skill {
-    border-color: rgba(43, 127, 184, 0.45);
-    background: rgba(43, 127, 184, 0.07);
+    border-color: rgba(94, 123, 136, 0.45);
+    background: rgba(94, 123, 136, 0.07);
   }
 
   .concept .tag { align-self: flex-start; }
@@ -85,7 +85,7 @@
   }
 
   .panel-label {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--serif);
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -130,7 +130,7 @@
     border-radius: 9px;
     background: var(--ink);
     color: var(--paper);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: var(--serif);
     font-size: 17px;
     font-weight: 800;
     display: flex;
@@ -190,5 +190,6 @@
     </section>
   </div>
 </main>
+<script src="../shared/motion.js"></script>
 </body>
 </html>
