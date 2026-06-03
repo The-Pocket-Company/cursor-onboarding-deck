@@ -29,6 +29,7 @@
 
   window.DECK_WIDTH = 1920;
   window.DECK_HEIGHT = 1080;
+  window.DECK_VERSION = "20260603-2238";
 </script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,7 +158,8 @@
     if (index < 0 || index >= deck.length) return;
     current = index;
     frame.style.opacity = '0';
-    frame.src = deck[index].file;
+    const versionParam = window.DECK_VERSION ? "?v=" + window.DECK_VERSION : "";
+    frame.src = deck[index].file + versionParam;
     counter.innerHTML = `${index + 1} / ${deck.length}<span class="label">${deck[index].label || ''}</span>`;
     try { localStorage.setItem(storageKey, String(index)); } catch (_) {}
     if (location.hash !== '#' + (index + 1)) {
