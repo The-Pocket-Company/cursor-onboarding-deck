@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>17 · 釐清到 Build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .loop-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 36px;
+    padding-top: 84px;
+  }
+
+  .loop-header h2 {
+    max-width: 1240px;
+  }
+
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .pipeline {
+    width: 1700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 296px 55px 296px 55px 296px 55px 296px 55px 296px;
+    align-items: stretch;
+  }
+
+  .flow-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    min-height: 248px;
+    padding: 34px 28px;
+    border-radius: 26px;
+    border: 2px solid var(--line);
+    background: rgba(255, 253, 248, 0.88);
+    box-shadow: var(--shadow);
+  }
+
+  .flow-card .step-tag {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .flow-card h3 {
+    font-size: 35px;
+    letter-spacing: -0.02em;
+  }
+
+  .flow-card p {
+    color: var(--muted);
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 550;
+  }
+
+  .flow-card.hero {
+    border-color: rgba(43, 127, 184, 0.5);
+    background: rgba(43, 127, 184, 0.09);
+  }
+
+  .flow-card.hero h3 { color: var(--cloud); }
+  .flow-card.build h3 { color: var(--cursor); }
+  .flow-card.verify h3 { color: var(--local); }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-arrow path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .loop {
+    width: 1700px;
+    margin: 6px auto 0;
+  }
+
+  .loop-svg { display: block; overflow: visible; }
+
+  .loop-path {
+    fill: none;
+    stroke: var(--cloud);
+    stroke-width: 3.5;
+    stroke-dasharray: 9 9;
+    stroke-linecap: round;
+  }
+
+  .loop-arrow-head { fill: var(--cloud); }
+
+  .loop-label {
+    fill: var(--cloud);
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 23px;
+    font-weight: 750;
+  }
+
+  .callout {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 26px 34px;
+    border-radius: 24px;
+    background: var(--paper-deep);
+  }
+
+  .callout-tag {
+    flex: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .callout p {
+    font-size: 26px;
+    line-height: 1.42;
+    font-weight: 650;
+  }
+
+  .callout .cloud-text { color: var(--cloud); }
+  .callout .accent { color: var(--cursor); }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">17 / 18</p>
+  </div>
+
+  <div class="content loop-layout">
+    <section class="loop-header">
+      <p class="kicker">clarify then build</p>
+      <h2>來回釐清，先有精準的 Plan 再 Build</h2>
+      <p class="subtitle">別急著叫它寫。先把需求磨清楚、定好計畫，執行就會又快又準。</p>
+    </section>
+
+    <section class="flow-wrap">
+      <div class="pipeline">
+        <div class="flow-card">
+          <span class="step-tag" style="color: var(--cursor);">step 1 · 你</span>
+          <h3>描述需求</h3>
+          <p>把目標與脈絡講出來。</p>
+        </div>
+
+        <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+        <div class="flow-card hero">
+          <span class="step-tag">step 2 · 來回</span>
+          <h3>釐清</h3>
+          <p>Cursor 問、你補充，把模糊變具體。</p>
+        </div>
+
+        <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+        <div class="flow-card">
+          <span class="step-tag">step 3 · 確認</span>
+          <h3>鎖定 Plan</h3>
+          <p>確認一份精準的計畫。</p>
+        </div>
+
+        <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+        <div class="flow-card build">
+          <span class="step-tag">step 4 · agent</span>
+          <h3>Build</h3>
+          <p>切到 Agent，開始執行。</p>
+        </div>
+
+        <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+        <div class="flow-card verify">
+          <span class="step-tag">step 5 · 檢查</span>
+          <h3>驗證</h3>
+          <p>跑得起來、結果對不對。</p>
+        </div>
+      </div>
+
+      <div class="loop">
+        <svg class="loop-svg" viewBox="0 0 1700 96" width="1700" height="96" aria-hidden="true">
+          <defs>
+            <marker id="loop-arrow" markerWidth="13" markerHeight="13" refX="6" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+              <path class="loop-arrow-head" d="M0,10 L6,0 L12,10 Z"></path>
+            </marker>
+          </defs>
+          <path class="loop-path" marker-end="url(#loop-arrow)" d="M1552,4 L1552,60 L499,60 L499,8"></path>
+          <text class="loop-label" x="1025" y="48" text-anchor="middle">驗證沒過 → 回到「釐清」再修一次</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="callout">
+      <span class="callout-tag">重點</span>
+      <p>在 <span class="cloud-text">Plan 模式</span>反覆對話，把需求磨成精準的 Plan，再切 <span class="accent">Agent</span> build。改一點、驗一點，比一次做完更穩。</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>
