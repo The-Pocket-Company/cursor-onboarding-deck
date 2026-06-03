@@ -4,7 +4,7 @@ description: 降低 AI 寫程式常見錯誤的行為準則。寫程式、審查
 license: MIT
 ---
 
-# AI Coding 行為準則（繁中）
+# AI Coding 行為準則
 
 降低 LLM 寫程式常見錯誤的行為準則，可與專案既有規範合併使用。
 
