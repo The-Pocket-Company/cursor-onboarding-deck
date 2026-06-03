@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>19 · Rules &amp; Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .rs-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 30px;
+    padding-top: 84px;
+  }
+
+  .rs-header h2 { max-width: 1200px; }
+  .rs-header .subtitle { font-size: 28px; max-width: 1360px; margin-top: 20px; }
+
+  .rs-body {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 48px;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .concept-stack {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    min-height: 0;
+  }
+
+  .concept {
+    padding: 24px 34px;
+    border-radius: 26px;
+    border: 2px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+  }
+
+  .concept.rule {
+    border-color: rgba(232, 116, 44, 0.45);
+    background: rgba(232, 116, 44, 0.07);
+  }
+
+  .concept.skill {
+    border-color: rgba(43, 127, 184, 0.45);
+    background: rgba(43, 127, 184, 0.07);
+  }
+
+  .concept .tag { align-self: flex-start; }
+  .concept.rule h3 { color: var(--cursor); font-size: 34px; }
+  .concept.skill h3 { color: var(--cloud); font-size: 34px; }
+
+  .concept p {
+    color: var(--muted);
+    font-size: 21px;
+    line-height: 1.42;
+    font-weight: 550;
+  }
+
+  .concept .path {
+    align-self: flex-start;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: rgba(35, 32, 32, 0.06);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .tree-panel {
+    padding: 28px 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 0;
+  }
+
+  .panel-label {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .tree {
+    margin: 0;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 22px;
+    line-height: 1.62;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .t-dim { color: var(--muted); }
+  .t-dir { font-weight: 700; }
+  .t-rule { color: var(--cursor); font-weight: 700; }
+  .t-skill { color: var(--cloud); font-weight: 700; }
+
+  .tree-steps {
+    display: grid;
+    gap: 11px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 2px solid var(--line);
+  }
+
+  .tstep {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .tstep .n {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tstep .mono { color: var(--cursor); font-weight: 700; }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">19 / 20</p>
+  </div>
+
+  <div class="content rs-layout">
+    <section class="rs-header">
+      <p class="kicker">customize cursor</p>
+      <h2>用 Rules 與 Skills 客製化 Cursor</h2>
+      <p class="subtitle">前面教的原則，可以變成固定檔案餵給 Cursor，每次自動遵守。兩種做法：</p>
+    </section>
+
+    <section class="rs-body">
+      <div class="concept-stack">
+        <div class="concept rule">
+          <span class="tag" style="color: var(--cursor);">rule · 自動套用</span>
+          <h3>Rule 規則</h3>
+          <p>固定的行為準則，可設成每次都自動套用。把「想清楚再寫、最小改動」這類原則寫進去。</p>
+          <span class="path">.cursor/rules/&lt;名稱&gt;.mdc</span>
+        </div>
+
+        <div class="concept skill">
+          <span class="tag" style="color: var(--cloud);">skill · 需要時叫用</span>
+          <h3>Skill 技能</h3>
+          <p>需要時才被叫用的能力包。像這份簡報，就是用 huashu-design 這個 skill 做出來的。</p>
+          <span class="path">.cursor/skills/&lt;名稱&gt;/SKILL.md</span>
+        </div>
+      </div>
+
+      <div class="tree-panel node">
+        <p class="panel-label">資料夾結構（放在專案根目錄）</p>
+<pre class="tree"><span class="t-dim">你的專案/</span>
+└─ <span class="t-dir">.cursor/</span>
+   ├─ <span class="t-dir">rules/</span>
+   │  └─ karpathy-guidelines.mdc   <span class="t-rule">← Rule</span>
+   └─ <span class="t-dir">skills/</span>
+      └─ <span class="t-dir">karpathy-guidelines/</span>
+         └─ SKILL.md   <span class="t-skill">← Skill</span></pre>
+        <div class="tree-steps">
+          <p class="tstep"><span class="n">1</span><span>在專案根目錄建立 <span class="mono">.cursor</span> 資料夾與上面的子資料夾。</span></p>
+          <p class="tstep"><span class="n">2</span><span>新增 <span class="mono">.mdc</span> 與 <span class="mono">SKILL.md</span> 檔案。</span></p>
+          <p class="tstep"><span class="n">3</span><span>貼上內容、存檔，Cursor 立即生效。下一頁可直接複製。</span></p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
