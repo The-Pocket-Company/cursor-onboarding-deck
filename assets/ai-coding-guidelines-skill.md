@@ -1,12 +1,12 @@
 ---
-name: karpathy-guidelines
+name: ai-coding-guidelines
 description: 降低 AI 寫程式常見錯誤的行為準則。寫程式、審查或重構時套用：避免過度設計、做最小幅度修改、講清楚假設，並設定可驗證的成功標準。
 license: MIT
 ---
 
-# Karpathy 行為準則（繁中）
+# AI Coding 行為準則（繁中）
 
-降低 LLM 寫程式常見錯誤的行為準則，靈感來自 Andrej Karpathy 對 LLM 寫程式常見陷阱的觀察。
+降低 LLM 寫程式常見錯誤的行為準則，可與專案既有規範合併使用。
 
 **取捨：** 這些準則偏向「謹慎優先於速度」。瑣碎任務請自行斟酌。
 
