@@ -24,9 +24,9 @@
 
   .timeline {
     position: absolute;
-    left: 94px;
-    top: 112px;
-    bottom: 112px;
+    left: 93px;
+    top: 130px;
+    bottom: 212px;
     width: 5px;
     border-radius: 999px;
     background: var(--line);
@@ -34,7 +34,7 @@
 
   .commit {
     position: absolute;
-    left: 148px;
+    left: 151px;
     width: 650px;
     padding: 24px 30px;
     border-radius: 24px;
@@ -45,13 +45,14 @@
   .commit::before {
     content: "";
     position: absolute;
-    left: -76px;
+    left: -72px;
     top: 28px;
     width: 28px;
     height: 28px;
     border-radius: 50%;
     border: 5px solid var(--git);
     background: var(--paper);
+    box-sizing: border-box;
   }
 
   .commit p:first-child {
@@ -67,9 +68,9 @@
     font-weight: 820;
   }
 
-  .c1 { top: 94px; }
-  .c2 { top: 270px; }
-  .c3 { top: 446px; }
+  .c1 { top: 88px; }
+  .c2 { top: 264px; }
+  .c3 { top: 440px; }
 
   .reasons {
     margin-top: 46px;
