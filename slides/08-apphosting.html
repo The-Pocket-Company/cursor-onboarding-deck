@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>08 · App Hosting 自動部署</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .deploy-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 46px;
+    padding-top: 88px;
+  }
+
+  .deploy-header h2 {
+    max-width: 1320px;
+    font-size: 70px;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .flow-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px 30px;
+    border-radius: 28px;
+    border: 2px solid var(--line);
+    background: rgba(255, 253, 248, 0.88);
+    box-shadow: var(--shadow);
+  }
+
+  .flow-card .step-tag {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .flow-card h3 {
+    font-size: 37px;
+    letter-spacing: -0.02em;
+  }
+
+  .flow-card h3 .mono {
+    font-size: 33px;
+  }
+
+  .flow-card p {
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1.42;
+    font-weight: 550;
+  }
+
+  .flow-card.hero {
+    border-color: rgba(43, 127, 184, 0.5);
+    background: rgba(43, 127, 184, 0.09);
+  }
+
+  .flow-card.hero h3 { color: var(--cloud); }
+  .flow-card.live h3 { color: var(--local); }
+
+  .auto-badge {
+    align-self: flex-start;
+    margin-bottom: 2px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--cloud);
+    color: var(--white);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .flow-arrow {
+    flex: none;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-arrow path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .callout-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .callout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 28px 34px;
+    border-radius: 24px;
+  }
+
+  .callout.app {
+    background: rgba(232, 116, 44, 0.07);
+    border: 2px solid rgba(232, 116, 44, 0.32);
+  }
+
+  .callout.run {
+    background: rgba(43, 127, 184, 0.07);
+    border: 2px solid rgba(43, 127, 184, 0.3);
+  }
+
+  .callout h4 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 850;
+  }
+
+  .callout.app h4 { color: var(--cursor); }
+  .callout.run h4 { color: var(--cloud); }
+
+  .callout p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.46;
+    font-weight: 550;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">08 / 14</p>
+  </div>
+
+  <div class="content deploy-layout">
+    <section class="deploy-header">
+      <p class="kicker">auto deploy</p>
+      <h2>git push 出去，App Hosting 自動幫你部署</h2>
+      <p class="subtitle">把 GitHub repo 接上 Firebase App Hosting 之後，你不用自己開伺服器、也不用手動上傳——每次 push 就會自動 build 並上線。</p>
+    </section>
+
+    <section class="pipeline">
+      <div class="flow-card">
+        <span class="step-tag" style="color: var(--cursor);">step 1 · 本機</span>
+        <h3>在 Cursor 改 code</h3>
+        <p>寫好功能、存檔。</p>
+      </div>
+
+      <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+      <div class="flow-card">
+        <span class="step-tag">step 2 · 你</span>
+        <h3><span class="mono">git push</span></h3>
+        <p>把這次修改推到 GitHub 分支。</p>
+      </div>
+
+      <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+      <div class="flow-card">
+        <span class="step-tag">step 3</span>
+        <h3>GitHub repo</h3>
+        <p>雲端保存最新的程式碼。</p>
+      </div>
+
+      <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+      <div class="flow-card hero">
+        <span class="auto-badge">auto</span>
+        <h3>App Hosting</h3>
+        <p>偵測到 push，自動 build ＋ 部署。</p>
+      </div>
+
+      <div class="flow-arrow"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M13 8 L27 20 L13 32"></path></svg></div>
+
+      <div class="flow-card live">
+        <span class="step-tag" style="color: var(--local);">step 5 · 上線</span>
+        <h3>網站更新</h3>
+        <p>新版本立刻出現在你的網址。</p>
+      </div>
+    </section>
+
+    <section class="callout-row">
+      <div class="callout app">
+        <h4>前端、後端是同一個 app</h4>
+        <p>前端和後端都在同一個 Next.js 專案，App Hosting 一次就把它們部署完——所以不用自己設定 Cloud Run。</p>
+      </div>
+      <div class="callout run">
+        <h4>什麼時候才用 Cloud Run？</h4>
+        <p>當你需要可以獨立執行、單獨擴展的服務（例如爬蟲、排程）時，才另外開 Cloud Run，再由後端呼叫它。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

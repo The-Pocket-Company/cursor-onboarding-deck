@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>03 · Cursor 起步</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .cursor-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .mock-ide {
+    height: 680px;
+    border: 2px solid var(--line);
+    border-radius: 36px;
+    overflow: hidden;
+    background: #fffdf8;
+    box-shadow: var(--shadow);
+  }
+
+  .ide-top {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 28px;
+    border-bottom: 2px solid var(--line);
+    background: #efe4d4;
+  }
+
+  .ide-title {
+    margin-left: 12px;
+    color: var(--muted);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+  }
+
+  .ide-body {
+    height: calc(100% - 72px);
+    display: grid;
+    grid-template-columns: 210px 1fr 300px;
+  }
+
+  .sidebar {
+    padding: 28px 22px;
+    border-right: 2px solid var(--line);
+    background: #f7efe3;
+  }
+
+  .file {
+    height: 38px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background: rgba(35,32,32,0.08);
+  }
+
+  .editor {
+    padding: 34px;
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  .code-line {
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(35,32,32,0.10);
+  }
+
+  .code-line.short { width: 48%; }
+  .code-line.mid { width: 70%; }
+  .code-line.long { width: 92%; }
+
+  .chat {
+    padding: 26px;
+    border-left: 2px solid var(--line);
+    background: #fffaf0;
+  }
+
+  .bubble {
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-radius: 22px;
+    color: var(--muted);
+    background: rgba(232,116,44,0.10);
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 650;
+  }
+
+  .use-list {
+    margin-top: 44px;
+    display: grid;
+    gap: 20px;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">03 / 14</p>
+  </div>
+
+  <div class="content cursor-layout">
+    <section>
+      <p class="kicker">cursor first</p>
+      <h2>Cursor 先當成「會陪你寫程式的編輯器」</h2>
+      <p class="subtitle">你已經有帳號，所以第一步不是學完所有設定，而是知道它每天會幫你做哪三件事。</p>
+      <div class="use-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <p class="step-title">開一個專案資料夾</p>
+            <p class="step-copy">所有程式碼、設定、文件都放在同一個 workspace。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <p class="step-title">用 AI 問「下一步」</p>
+            <p class="step-copy">像問助教一樣：請它解釋檔案、修 bug、整理步驟。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <p class="step-title">把成果存進 Git</p>
+            <p class="step-copy">等一下接 GitHub 後，你的專案就能保存版本。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mock-ide">
+      <div class="ide-top">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <p class="ide-title">my-first-app · Cursor</p>
+      </div>
+      <div class="ide-body">
+        <div class="sidebar">
+          <div class="file"></div>
+          <div class="file" style="width: 82%;"></div>
+          <div class="file" style="width: 70%;"></div>
+          <div class="file" style="width: 88%;"></div>
+        </div>
+        <div class="editor">
+          <div class="code-line long"></div>
+          <div class="code-line mid"></div>
+          <div class="code-line short"></div>
+          <div class="code-line long"></div>
+          <div class="code-line mid"></div>
+          <div class="code-line" style="width: 56%; background: rgba(232,116,44,0.20);"></div>
+          <div class="code-line long"></div>
+          <div class="code-line mid"></div>
+        </div>
+        <div class="chat">
+          <div class="bubble">請幫我解釋這個專案怎麼啟動。</div>
+          <div class="bubble" style="background: rgba(35,32,32,0.08);">我會先看 package.json，再整理啟動步驟。</div>
+          <div class="bubble">幫我把 GitHub 連起來。</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>10 · 為什麼需要 Gmail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .gmail-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+    gap: 66px;
+    align-items: center;
+  }
+
+  .key-board {
+    height: 690px;
+    position: relative;
+    padding: 48px;
+  }
+
+  .key-svg {
+    position: absolute;
+    top: 132px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 640px;
+    height: auto;
+    color: var(--cloud);
+    display: block;
+  }
+
+  .account-card {
+    position: absolute;
+    right: 66px;
+    bottom: 78px;
+    width: 500px;
+    padding: 34px;
+    border-radius: 30px;
+    background: var(--white);
+    border: 2px solid var(--line);
+    box-shadow: 0 24px 70px rgba(61,44,25,0.12);
+  }
+
+  .account-card p:first-child {
+    font-size: 33px;
+    font-weight: 850;
+  }
+
+  .account-card p:last-child {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 24px;
+    line-height: 1.45;
+  }
+
+  .needs {
+    margin-top: 44px;
+    display: grid;
+    gap: 20px;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">10 / 14</p>
+  </div>
+
+  <div class="content gmail-layout">
+    <section>
+      <p class="kicker">google account</p>
+      <h2>如果要用 GCP，Gmail 就是進雲端的鑰匙</h2>
+      <p class="subtitle">GCP 是 Google Cloud Platform。通常你會用 Google 帳號登入，很多初學者最簡單就是準備 Gmail。</p>
+      <div class="needs">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <p class="step-title">登入 Google Cloud Console</p>
+            <p class="step-copy">建立專案、啟用服務、管理帳單都在這裡。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <p class="step-title">建立 GCP Project</p>
+            <p class="step-copy">一個 project 像一個雲端工作區，裡面放 Cloud Run、Cloud SQL、Firestore。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <p class="step-title">管理權限與服務</p>
+            <p class="step-copy">未來也會用這個帳號決定誰能部署、誰能看資料。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="node key-board">
+      <span class="tag" style="color: var(--cloud);">access key</span>
+      <svg class="key-svg" viewBox="0 0 720 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="138" cy="140" r="94" stroke="currentColor" stroke-width="28"/>
+        <circle cx="138" cy="140" r="34" stroke="currentColor" stroke-width="20"/>
+        <line x1="232" y1="140" x2="664" y2="140" stroke="currentColor" stroke-width="28" stroke-linecap="round"/>
+        <line x1="556" y1="152" x2="556" y2="224" stroke="currentColor" stroke-width="26" stroke-linecap="round"/>
+        <line x1="636" y1="152" x2="636" y2="200" stroke="currentColor" stroke-width="26" stroke-linecap="round"/>
+      </svg>
+      <div class="account-card">
+        <p>Gmail / Google 帳號</p>
+        <p>不是因為寫 localhost 一定需要它，而是因為你要進入 GCP 的雲端服務時，需要一個 Google 身分。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>04 · 為什麼需要 Git</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .git-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 66px;
+    align-items: center;
+  }
+
+  .time-machine {
+    position: relative;
+    height: 700px;
+    padding: 48px;
+  }
+
+  .timeline {
+    position: absolute;
+    left: 94px;
+    top: 112px;
+    bottom: 112px;
+    width: 5px;
+    border-radius: 999px;
+    background: var(--line);
+  }
+
+  .commit {
+    position: absolute;
+    left: 148px;
+    width: 650px;
+    padding: 24px 30px;
+    border-radius: 24px;
+    background: rgba(255,253,248,0.84);
+    border: 2px solid var(--line);
+  }
+
+  .commit::before {
+    content: "";
+    position: absolute;
+    left: -76px;
+    top: 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 5px solid var(--git);
+    background: var(--paper);
+  }
+
+  .commit p:first-child {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 20px;
+    color: var(--muted);
+  }
+
+  .commit p:last-child {
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 820;
+  }
+
+  .c1 { top: 94px; }
+  .c2 { top: 270px; }
+  .c3 { top: 446px; }
+
+  .reasons {
+    margin-top: 46px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">04 / 14</p>
+  </div>
+
+  <div class="content git-layout">
+    <section>
+      <p class="kicker">why git</p>
+      <h2>Git 不是社群網站，是你的程式時光機</h2>
+      <p class="subtitle">Git 負責記錄每次改動；GitHub 則像雲端倉庫，幫你把 Git 記錄放到網路上。</p>
+      <div class="reasons">
+        <div class="node node-compact">
+          <p class="node-title">可以回到舊版本</p>
+          <p class="node-body">改壞了不用恐慌，回頭找上一個穩定點。</p>
+        </div>
+        <div class="node node-compact">
+          <p class="node-title">可以備份到雲端</p>
+          <p class="node-body">電腦壞掉，程式碼還在 GitHub。</p>
+        </div>
+        <div class="node node-compact">
+          <p class="node-title">可以讓服務部署</p>
+          <p class="node-body">Cloud Run 等服務通常會從 repository 讀程式。</p>
+        </div>
+        <div class="node node-compact">
+          <p class="node-title">可以跟 AI 協作</p>
+          <p class="node-body">每次改動可被比較、審查、回復。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="node time-machine">
+      <span class="tag" style="color: var(--git);">git commits</span>
+      <div class="timeline"></div>
+      <div class="commit c1">
+        <p>commit 1</p>
+        <p>建立第一版網站</p>
+      </div>
+      <div class="commit c2">
+        <p>commit 2</p>
+        <p>加入登入功能，但還沒部署</p>
+      </div>
+      <div class="commit c3">
+        <p>commit 3</p>
+        <p>修好資料庫連線，準備發布</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>05 · 註冊 GitHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .signup-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap: 66px;
+    align-items: center;
+  }
+
+  .signup-steps {
+    margin-top: 44px;
+  }
+
+  .browser {
+    height: 690px;
+  }
+
+  .signup-form {
+    display: grid;
+    gap: 24px;
+  }
+
+  .field {
+    height: 72px;
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 650;
+    background: #fffdf8;
+  }
+
+  .fake-button {
+    height: 76px;
+    border-radius: 22px;
+    background: var(--git);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 850;
+  }
+
+  .verify-box {
+    margin-top: 26px;
+    padding: 28px;
+    border-radius: 26px;
+    background: rgba(79,138,82,0.10);
+    border: 2px solid rgba(79,138,82,0.35);
+  }
+
+  .verify-box p:first-child {
+    font-size: 29px;
+    font-weight: 850;
+    color: var(--local);
+  }
+
+  .verify-box p:last-child {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">05 / 14</p>
+  </div>
+
+  <div class="content signup-layout">
+    <section>
+      <p class="kicker">github account</p>
+      <h2>註冊 GitHub：把程式碼放進雲端倉庫</h2>
+      <p class="subtitle">這裡的重點不是學 Git 指令，而是先有一個能跟 Cursor 連接的帳號。</p>
+      <div class="step-list signup-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <p class="step-title">打開 <span class="mono">github.com</span></p>
+            <p class="step-copy">點 Sign up，照畫面填 email、密碼、使用者名稱。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <p class="step-title">完成 Email 驗證</p>
+            <p class="step-copy">GitHub 會寄驗證信，這一步做完才算帳號可用。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <p class="step-title">記住你的 username</p>
+            <p class="step-copy">之後 repository 網址、團隊邀請都會用到它。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="browser">
+      <div class="browser-top">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="address">https://github.com/signup</div>
+      </div>
+      <div class="browser-body">
+        <p class="kicker" style="margin-bottom: 22px;">create account</p>
+        <div class="signup-form">
+          <div class="field">Email address</div>
+          <div class="field">Password</div>
+          <div class="field">Username</div>
+          <div class="fake-button">Create account</div>
+        </div>
+        <div class="verify-box">
+          <p>完成驗證後，先不用急著建立專案</p>
+          <p>下一步會在 Cursor 裡把這個 GitHub 帳號接起來。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

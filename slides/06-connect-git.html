@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>06 · 連進 Cursor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .connect-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 62px;
+    align-items: center;
+  }
+
+  .connect-board {
+    height: 690px;
+    position: relative;
+    padding: 46px;
+  }
+
+  /* SVG overlay sits inside the board's padding box (2px border),
+     so its viewBox coordinates line up 1:1 with the absolutely
+     positioned nodes below. */
+  .connect-svg {
+    position: absolute;
+    inset: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .connect-svg .conn {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 3;
+  }
+
+  .connect-svg .conn-head {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .app-node {
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    height: 200px;
+    padding: 30px 32px;
+    border-radius: 30px;
+    background: var(--white);
+    border: 2px solid var(--line);
+    box-shadow: 0 20px 58px rgba(61,44,25,0.11);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .app-node p:first-child {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .app-node p:last-child {
+    color: var(--muted);
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  /* Coordinate space below matches the SVG viewBox (880 x 686). */
+  .cursor-node { left: 46px;  top: 104px; border-color: rgba(232,116,44,0.5); }
+  .github-node { left: 538px; top: 104px; border-color: rgba(63,51,44,0.45); }
+  .repo-node   { left: 518px; top: 412px; width: 340px; height: auto; min-height: 200px; border-color: rgba(79,138,82,0.5); }
+
+  .commands {
+    margin-top: 42px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .command {
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: #2b2723;
+    color: #f7efe3;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .note {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">06 / 14</p>
+  </div>
+
+  <div class="content connect-layout">
+    <section>
+      <p class="kicker">connect to cursor</p>
+      <h2>把 GitHub 連進 Cursor，專案才有去處</h2>
+      <p class="subtitle">連接後，你可以 clone 別人的 repository，也可以把自己的專案 publish 到 GitHub。</p>
+      <div class="commands">
+        <p class="command">git config --global user.name "你的名字"</p>
+        <p class="command">git config --global user.email "你的 email"</p>
+      </div>
+      <p class="note">這兩行只是告訴 Git「誰做了這次修改」。帳號登入則通常在 Cursor / GitHub 授權畫面完成。</p>
+    </section>
+
+    <section class="node connect-board">
+      <span class="tag" style="color: var(--cursor);">connection map</span>
+      <svg class="connect-svg" viewBox="0 0 880 686" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <marker id="cg-arrow" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16"
+                  viewBox="0 0 12 12" refX="9" refY="6" orient="auto">
+            <path class="conn-head" d="M2.5 2.5 L9 6 L2.5 9.5" />
+          </marker>
+        </defs>
+        <!-- Cursor → GitHub : right edge of Cursor (346) to left edge of GitHub (538) -->
+        <line class="conn" x1="346" y1="204" x2="538" y2="204" marker-end="url(#cg-arrow)" />
+        <!-- GitHub → Repository : bottom-center of GitHub (688,304) down to top of Repo (412) -->
+        <line class="conn" x1="688" y1="304" x2="688" y2="412" marker-end="url(#cg-arrow)" />
+      </svg>
+      <div class="app-node cursor-node">
+        <p>Cursor</p>
+        <p>你每天寫程式的地方。</p>
+      </div>
+      <div class="app-node github-node">
+        <p>GitHub</p>
+        <p>程式碼的雲端倉庫。</p>
+      </div>
+      <div class="app-node repo-node">
+        <p>Repository</p>
+        <p>一個專案對應一個 repo：包含程式碼、設定、文件與版本歷史。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
