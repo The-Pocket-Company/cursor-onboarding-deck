@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>15 · 兩種模式</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .modes-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 40px;
+    padding-top: 84px;
+  }
+
+  .modes-header h2 {
+    max-width: 1240px;
+  }
+
+  .mode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+
+  .mode-card {
+    padding: 44px 46px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .mode-card.plan {
+    border-color: rgba(43, 127, 184, 0.45);
+    background: rgba(43, 127, 184, 0.07);
+  }
+
+  .mode-card.agent {
+    border-color: rgba(232, 116, 44, 0.45);
+    background: rgba(232, 116, 44, 0.07);
+  }
+
+  .mode-card .tag {
+    align-self: flex-start;
+  }
+
+  .mode-card h3 {
+    font-size: 50px;
+    letter-spacing: -0.03em;
+  }
+
+  .mode-card.plan h3 { color: var(--cloud); }
+  .mode-card.agent h3 { color: var(--cursor); }
+
+  .mode-desc {
+    color: var(--muted);
+    font-size: 26px;
+    line-height: 1.5;
+    font-weight: 550;
+  }
+
+  .mode-when {
+    margin-top: 6px;
+    padding-top: 24px;
+    border-top: 2px solid var(--line);
+    display: grid;
+    gap: 16px;
+  }
+
+  .when-label {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .when-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 25px;
+    line-height: 1.36;
+    font-weight: 600;
+  }
+
+  .when-item::before {
+    content: "";
+    flex: none;
+    margin-top: 11px;
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+  }
+
+  .mode-card.plan .when-item::before { background: var(--cloud); }
+  .mode-card.agent .when-item::before { background: var(--cursor); }
+
+  .mindset {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 26px 34px;
+    border-radius: 24px;
+    background: var(--paper-deep);
+  }
+
+  .mindset-tag {
+    flex: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .mindset p {
+    font-size: 27px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  .mindset .accent { color: var(--cursor); }
+  .mindset .cloud-text { color: var(--cloud); }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">15 / 18</p>
+  </div>
+
+  <div class="content modes-layout">
+    <section class="modes-header">
+      <p class="kicker">work modes</p>
+      <h2>兩種模式：先想清楚，再動手</h2>
+      <p class="subtitle">Cursor 有兩種工作方式。學會在對的時機切換，是把 AI Coding 做準的第一步。</p>
+    </section>
+
+    <section class="mode-grid">
+      <div class="node mode-card plan">
+        <span class="tag" style="color: var(--cloud);">think first</span>
+        <h3>Plan 模式</h3>
+        <p class="mode-desc">唯讀模式，先一起把做法想清楚。Cursor 會問問題、提出計畫，但不會改你的檔案。</p>
+        <div class="mode-when">
+          <p class="when-label">適合什麼時候</p>
+          <p class="when-item">需求比較大，或有好幾種做法</p>
+          <p class="when-item">想先釐清方向再動手</p>
+          <p class="when-item">需要一份能先確認的 Plan</p>
+        </div>
+      </div>
+
+      <div class="node mode-card agent">
+        <span class="tag" style="color: var(--cursor);">execute</span>
+        <h3>Agent 模式</h3>
+        <p class="mode-desc">執行模式，會實際讀寫檔案、跑指令，把任務直接做出來。</p>
+        <div class="mode-when">
+          <p class="when-label">適合什麼時候</p>
+          <p class="when-item">方向已經很清楚</p>
+          <p class="when-item">小修改、單一明確任務</p>
+          <p class="when-item">直接 build，馬上看結果</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mindset">
+      <span class="mindset-tag">心法</span>
+      <p>複雜任務先用 <span class="cloud-text">Plan</span> 想清楚，方向定了再切 <span class="accent">Agent</span> 開始 build。</p>
+    </section>
+  </div>
+</main>
+</body>
+</html>

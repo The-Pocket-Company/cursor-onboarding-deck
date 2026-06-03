@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>18 · AI Coding 原則</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .principles-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 44px;
+    padding-top: 84px;
+  }
+
+  .principles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 72px;
+  }
+
+  .principles-header h2 {
+    max-width: 900px;
+  }
+
+  .principles-header .subtitle {
+    max-width: 600px;
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .principle {
+    padding: 38px 38px;
+    border-radius: 28px;
+    border: 2px solid var(--line);
+    background: rgba(255, 253, 248, 0.82);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .p-num {
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(232, 116, 44, 0.12);
+    color: var(--cursor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  .principle h3 {
+    font-size: 33px;
+    letter-spacing: -0.02em;
+  }
+
+  .principle p {
+    color: var(--muted);
+    font-size: 23px;
+    line-height: 1.46;
+    font-weight: 550;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">18 / 18</p>
+  </div>
+
+  <div class="content principles-layout">
+    <section class="principles-header">
+      <div>
+        <p class="kicker">do it well</p>
+        <h2>把 AI Coding 做得又快又準</h2>
+      </div>
+      <p class="subtitle">把前面幾頁串起來，這六個習慣會讓你少走很多冤枉路。</p>
+    </section>
+
+    <section class="principle-grid">
+      <div class="principle">
+        <span class="p-num">01</span>
+        <h3>小步快跑</h3>
+        <p>一次一個明確任務，別一次塞十件事。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num">02</span>
+        <h3>給足脈絡</h3>
+        <p>用 @ 帶相關檔案、貼上錯誤訊息、說清楚現況。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num">03</span>
+        <h3>設好成功標準</h3>
+        <p>能驗證（跑得起來、測試過、畫面對）才算完成。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num">04</span>
+        <h3>檢視每次改動</h3>
+        <p>看 diff、理解了再接受，別盲目全部套用。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num">05</span>
+        <h3>卡住就換策略</h3>
+        <p>回到 Plan、縮小範圍，或請它先解釋給你聽。</p>
+      </div>
+      <div class="principle">
+        <span class="p-num">06</span>
+        <h3>先能動，再優化</h3>
+        <p>先把功能跑通，再回頭美化與重構。</p>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

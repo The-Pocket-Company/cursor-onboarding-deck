@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>16 · 描述需求</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  .req-layout {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 44px;
+    padding-top: 84px;
+  }
+
+  .req-header h2 {
+    max-width: 1180px;
+  }
+
+  .req-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 54px;
+    align-items: stretch;
+  }
+
+  .elements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 22px;
+  }
+
+  .element {
+    padding: 28px 30px;
+    border-radius: 24px;
+    border: 2px solid var(--line);
+    background: rgba(255, 253, 248, 0.72);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .el-num {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--cursor);
+  }
+
+  .element h4 {
+    margin: 0;
+    font-size: 31px;
+    font-weight: 850;
+  }
+
+  .element p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 21px;
+    line-height: 1.42;
+    font-weight: 550;
+  }
+
+  .element .mono {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .examples {
+    display: grid;
+    gap: 26px;
+    align-content: center;
+  }
+
+  .ex-card {
+    padding: 30px 34px;
+    border-radius: 26px;
+    border: 2px solid var(--line);
+  }
+
+  .ex-card.bad {
+    background: rgba(35, 32, 32, 0.035);
+  }
+
+  .ex-card.good {
+    border-color: rgba(79, 138, 82, 0.45);
+    background: rgba(79, 138, 82, 0.08);
+  }
+
+  .ex-head {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 16px;
+  }
+
+  .ex-icon {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ex-card.bad .ex-icon { background: rgba(107, 101, 96, 0.18); }
+  .ex-card.good .ex-icon { background: var(--local); }
+
+  .ex-icon svg { display: block; }
+  .ex-card.bad .ex-icon path { stroke: var(--muted); }
+  .ex-card.good .ex-icon path { stroke: var(--white); }
+  .ex-icon path { fill: none; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  .ex-label {
+    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+    font-size: 23px;
+    font-weight: 850;
+  }
+
+  .ex-card.good .ex-label { color: var(--local); }
+
+  .ex-quote {
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 650;
+  }
+
+  .ex-quote .mono {
+    padding: 1px 8px;
+    border-radius: 7px;
+    background: rgba(232, 116, 44, 0.12);
+    color: var(--cursor);
+    font-size: 22px;
+  }
+
+  .ex-why {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.42;
+    font-weight: 550;
+  }
+</style>
+</head>
+<body>
+<main class="slide">
+  <div class="masthead">
+    <div class="brand"><span class="brand-mark"></span><span>Cursor Onboarding</span></div>
+    <p class="page-no">16 / 18</p>
+  </div>
+
+  <div class="content req-layout">
+    <section class="req-header">
+      <p class="kicker">good prompts</p>
+      <h2>把需求講清楚，AI 才做得準</h2>
+      <p class="subtitle">AI 不會通靈。資訊越完整，它越能一次到位。一個好需求通常包含這四件事：</p>
+    </section>
+
+    <section class="req-body">
+      <div class="elements">
+        <div class="element">
+          <span class="el-num">01</span>
+          <h4>目標</h4>
+          <p>你想達成什麼結果。</p>
+        </div>
+        <div class="element">
+          <span class="el-num">02</span>
+          <h4>脈絡</h4>
+          <p>相關檔案（用 <span class="mono">@</span> 帶入）、限制與目前狀況。</p>
+        </div>
+        <div class="element">
+          <span class="el-num">03</span>
+          <h4>成功標準</h4>
+          <p>怎樣才算完成，而且能被驗證。</p>
+        </div>
+        <div class="element">
+          <span class="el-num">04</span>
+          <h4>範例與邊界</h4>
+          <p>給個例子，並說清楚「不要動什麼」。</p>
+        </div>
+      </div>
+
+      <div class="examples">
+        <div class="ex-card bad">
+          <div class="ex-head">
+            <span class="ex-icon"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5 L15 15 M15 5 L5 15"></path></svg></span>
+            <span class="ex-label">不夠清楚</span>
+          </div>
+          <p class="ex-quote">「幫我修一下這個。」</p>
+          <p class="ex-why">沒說哪個檔、預期行為，也沒有邊界，AI 只能用猜的。</p>
+        </div>
+
+        <div class="ex-card good">
+          <div class="ex-head">
+            <span class="ex-icon"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 L8.5 15 L16 5.5"></path></svg></span>
+            <span class="ex-label">清楚具體</span>
+          </div>
+          <p class="ex-quote">「<span class="mono">@login.tsx</span> 密碼錯誤時沒有提示。請在錯誤時顯示紅字訊息，成功則導向 /home，不要動到註冊流程。」</p>
+          <p class="ex-why">有檔案、有預期行為、有邊界，AI 一次就能做對。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>
